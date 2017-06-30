@@ -15,6 +15,7 @@ from StringIO import StringIO
 import pycrfsuite
 
 def tag_sent(tokens,tags):
+  #print extract_features(tokens,tags,brown)
   return tagger.tag(extract_features(tokens,tags,brown))
 
 def read_and_write(istream,index,msdindex,ostream):
@@ -59,5 +60,5 @@ if __name__=='__main__':
   args=parser.parse_args()
   tagger=pycrfsuite.Tagger()
   tagger.open(os.path.join(reldir,args.lang+'.ner.model'))
-  brown=dict([(e[1].decode('utf8'),e[0]) for e in [e.split('\t') for e in open(args.lang+'.brown')]])
+  brown=dict([(e[1].decode('utf8'),e[0]) for e in [e.split('\t') for e in open(os.path.join(reldir,args.lang+'.brown'))]])
   read_and_write(sys.stdin,args.index-1,args.msdindex-1,sys.stdout)
