@@ -53,8 +53,8 @@ def read_and_write(istream,index,msdindex,ostream):
 
 if __name__=='__main__':
   import argparse
-  parser=argparse.ArgumentParser(description='NER tagger for Slovene (Croatian and Serbian to follow)')
-  parser.add_argument('lang',help='language of the text',choices=['sl','sl.lower'])
+  parser=argparse.ArgumentParser(description='NER tagger for Slovene, Croatian and Serbian')
+  parser.add_argument('lang',help='language of the text',choices=['sl','sl.lower','sl.train','hr','sr'])
   parser.add_argument('-i','--index',help='index of the column containing surface forms',type=int,default=1)
   parser.add_argument('-m','--msdindex',help='index of the column containing MSDs',type=int,default=2)
   args=parser.parse_args()
