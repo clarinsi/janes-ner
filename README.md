@@ -30,13 +30,33 @@ Jajcu	Ncnsl	B-loc
 
 ```
 
+## Necessary preprocessing
+
+To produce data that is tokenised and part-of-speech-tagged (prerequisite for named entity recognition), you should apply the following tools to running text:
+
+- [reldi-tokeniser](https://github.com/clarinsi/reldi-tokeniser) for tokenization
+- [reldi-tagger](https://github.com/clarinsi/reldi-tagger) for morphosyntactic tags
+
+One exemplary run of these processes in a pipeline is this:
+
+```
+$ echo 'U Piranu pada kiša.' | python reldi-tokeniser/tokeniser.py hr | python reldi-tagger/tagger.py hr | python janes-ner/tagger.py -i 2 -m 3 hr
+1.1.1.1-1	U	Sl	O
+1.1.2.3-8	Piranu	Npmsl	B-loc
+1.1.3.10-13	pada	Vmr3s	O
+1.1.4.15-18	kiša	Ncfsn	O
+1.1.5.19-19	.	Z	O
+```
+
 ## Evaluation
 
-The tagger was evaluated on different flavours of Slovene held-out data: standard data and non-standard data.
+The tagger was evaluated on different flavours of Slovene held-out data: standard data, non-standard data and mixture of standard and non-standard data.
 
 The evaluation results on the standard data are the following:
 
 ```
+             precision    recall  f1-score   support
+
           o       0.99      1.00      0.99     36938
   deriv-per       0.44      0.56      0.49        27
         loc       0.85      0.74      0.79       582
@@ -50,6 +70,8 @@ avg / total       0.98      0.98      0.98     39178
 The evaluation results on the non-standard data are these:
 
 ```
+             precision    recall  f1-score   support
+
           o       0.99      1.00      1.00      1740
   deriv-per       0.00      0.00      0.00         1
         loc       0.79      0.92      0.85        12
@@ -58,6 +80,21 @@ The evaluation results on the non-standard data are these:
         per       0.98      1.00      0.99        82
 
 avg / total       0.99      0.99      0.99      1855
+```
+
+The evaluation results on the mixture of standard and non-standard data are these:
+
+```
+             precision    recall  f1-score   support
+
+          o       0.99      1.00      0.99     40418
+  deriv-per       0.44      0.52      0.48        29
+        loc       0.85      0.75      0.80       606
+       misc       0.41      0.24      0.30       343
+        org       0.69      0.48      0.56       509
+        per       0.88      0.96      0.92       983
+
+avg / total       0.98      0.98      0.98     42888
 ```
 
 ## Citing the tagger
