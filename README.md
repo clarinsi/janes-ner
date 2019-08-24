@@ -2,7 +2,7 @@
 NER system for South Slavic languages
 
 ```
-$ python tagger.py sl < example_sl.txt
+$ python2.7 tagger.py sl < example_sl.txt
 Slovenija	Npfsn	B-loc
 je	Va-r3s-n	O
 zelo	Rgp	O
@@ -10,7 +10,7 @@ zelo	Rgp	O
 lepa	Agpfsn	O
 .	Z	O
 
-$ python tagger.py hr < example_hr.txt
+$ python2.7 tagger.py hr < example_hr.txt
 Dodali	Vmp-pm	O
 smo	Var1p	O
 i	Qo	O
@@ -40,7 +40,7 @@ To produce data that is tokenised and part-of-speech-tagged (prerequisite for na
 One exemplary run of these processes in a pipeline is this:
 
 ```
-$ echo 'U Piranu pada kiša.' | python reldi-tokeniser/tokeniser.py hr | python reldi-tagger/tagger.py hr | python janes-ner/tagger.py -i 2 -m 3 hr
+$ echo 'U Piranu pada kiša.' | python2.7 reldi-tokeniser/tokeniser.py hr | python2.7 reldi-tagger/tagger.py hr | python2.7 janes-ner/tagger.py -i 2 -m 3 hr
 1.1.1.1-1	U	Sl	O
 1.1.2.3-8	Piranu	Npmsl	B-loc
 1.1.3.10-13	pada	Vmr3s	O
