@@ -1,5 +1,7 @@
 # janes-ner
-NER system for South Slavic languages
+NER system for Slovene, Croatian and Serbian. The system itself is a slight modification of the CRF-based [reldi-tagger](https://github.com/clarinsi/reldi-tagger) with Brown clusters information added. It differentiates between person, person derivative, location, organization and miscelaneous.
+
+The Slovene model was trained on [ssj500k](http://hdl.handle.net/11356/1210), the Croatian on [hr500k](http://hdl.handle.net/11356/1183), while the Serbian model was trained on [SETimes.SR](http://hdl.handle.net/11356/1200).
 
 ```
 $ python2.7 tagger.py sl < example_sl.txt
