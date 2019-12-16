@@ -52,7 +52,56 @@ $ echo 'U Piranu pada kiša.' | python2.7 reldi-tokeniser/tokeniser.py hr | pyth
 
 ## Evaluation
 
-The tagger was evaluated on different flavours of Slovene held-out data: standard data, non-standard data and mixture of standard and non-standard data.
+The tagger was evaluated inside the [babushka-bench](https://github.com/clarinsi/babushka-bench) benchmarking platform.
+
+On Slovene the overall macro-F1 of 0.673 and accuracy of 0.984 were obtained, with the following per-class results:
+
+```
+             precision    recall  f1-score   support
+
+                  0.99      1.00      1.00     16984
+  deriv-per       0.50      0.35      0.41        17
+        loc       0.84      0.77      0.80       230
+       misc       0.35      0.22      0.27        79
+        org       0.72      0.63      0.67       200
+        per       0.90      0.88      0.89       422
+
+avg / total       0.98      0.98      0.98     17932
+```
+
+On Croatian the overall macro-F1 of 0.752 and accuracy of 0.978 were obtained, with the following per-class results:
+
+```
+             precision    recall  f1-score   support
+
+                  0.99      1.00      0.99     47763
+  deriv-per       0.57      0.57      0.57        23
+        loc       0.86      0.84      0.85       840
+       misc       0.55      0.45      0.49       517
+        org       0.76      0.69      0.72      1183
+        per       0.86      0.92      0.89      1038
+
+avg / total       0.98      0.98      0.98     51364
+```
+
+On Serbian the overall macro-F1 of 0.781 and accuracy of 0.975 were obtained, with the following per-class results:
+
+```
+             precision    recall  f1-score   support
+
+                  0.99      1.00      1.00     16984
+  deriv-per       0.50      0.35      0.41        17
+        loc       0.84      0.77      0.80       230
+       misc       0.35      0.22      0.27        79
+        org       0.72      0.63      0.67       200
+        per       0.90      0.88      0.89       422
+
+avg / total       0.98      0.98      0.98     17932
+```
+
+### Slovene-only evaluation
+
+The tagger was previously evaluated on different flavours of Slovene held-out data: standard data, non-standard data and mixture of standard and non-standard data.
 
 The evaluation results on the standard data are the following:
 
